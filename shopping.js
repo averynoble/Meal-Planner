@@ -36,8 +36,46 @@ const groceryItems = [
     }
 ]
 
-for (const item of groceryItems) {
+/*for (const item of groceryItems) {
     console.log(`
     I need ${item.name}
     and it costs $${item.price} dollars.`)
+} */
+const addToShoppingList = (item) => {
+    const lastIndex = groceryItems.length - 1
+    const currentLastItem = groceryItems[lastIndex]
+    const maxId = currentLastItem.id
+    const idForNewItem = maxId + 1
+    item.dateCreated = Date.now()
+    item.id = idForNewItem
+    groceryItems.push(item)
 }
+
+const cheese = {
+    name: "Swiss",
+    price: 6.00
+}
+const iceCream = {
+    name: "Ben and Jerry's",
+    price: 12.00
+}
+const bread = {
+    name: "Wheat",
+    price: 8.00
+}
+const salad = {
+    name: "House",
+    price: 13.00
+}
+const chips = {
+    name: "Doritos",
+    price: 14.00
+}
+
+addToShoppingList(cheese)
+addToShoppingList(iceCream)
+addToShoppingList(bread)
+addToShoppingList(salad)
+addToShoppingList(chips)
+
+console.log(groceryItems)
